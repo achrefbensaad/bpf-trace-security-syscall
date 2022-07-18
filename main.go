@@ -94,7 +94,7 @@ func main() {
 				fullpatharray := path[event.Pid]
 				com := C.GoString((*C.char)(unsafe.Pointer(&event.Comm)))
 				fullpath := strings.Join(fullpatharray, "/")
-				if len(fullpath) > 0 {
+				if len(fullpath) > 1 {
 					fullpath = fullpath[1:]
 				}
 				PrintLine(com, event.Syscall, event.Pid, fullpath)
